@@ -76,19 +76,19 @@ func MorseCodeFunc(w http.ResponseWriter, r *http.Request) {
 		"=":  "-...-",
 	}
 
-	var result = ""
+	var resultMorse = ""
 
 	for i := 0; i < len(text); i++ {
 
 		if v, found := morseMap[string(text[i])]; found {
-			result += string(v)
+			resultMorse += string(v)
 			fmt.Println(string(text[i]))
 			fmt.Println(v)
 		}
 
 	}
 
-	morsecode.Code = result
+	morsecode.Code = resultMorse
 
 	_ = json.NewDecoder(r.Body).Decode(&morsecode)
 	json.NewEncoder(w).Encode(morsecode)
