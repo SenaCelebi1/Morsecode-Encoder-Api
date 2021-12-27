@@ -87,6 +87,7 @@ func MorseCodeFunc(w http.ResponseWriter, r *http.Request) {
 		}
 
 	}
+
 	morsecode.Code = result
 
 	_ = json.NewDecoder(r.Body).Decode(&morsecode)
